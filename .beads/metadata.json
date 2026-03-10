@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "server",
+  "dolt_database": "MiroFish",
+  "project_id": "58b8d162-e07f-429a-beee-155884b43694"
+}

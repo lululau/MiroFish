@@ -58,3 +58,7 @@ backend/uploads/
 
 # Docker 数据
 data/
+
+# Dolt database files (added by bd init)
+.dolt/
+*.db
