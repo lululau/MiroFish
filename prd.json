@@ -1,0 +1,340 @@
+{
+  "name": "MiroFish",
+  "description": "为 MiroFish 多智能体 AI 预测引擎生成详尽的中文文档，涵盖系统架构、后端服务、前端组件、API 接口、外部集成、部署配置和故障排查等各个方面。",
+  "branchName": "docs/zh-chinese-documentation",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "项目概览文档",
+      "description": "作为新接手项目的开发者，我需要了解 MiroFish 项目的整体概览，包括项目定位、核心功能、技术栈和目录结构。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/README.md 作为文档入口",
+        "包含项目简介：多智能体 AI 预测引擎",
+        "列出核心功能：图谱构建、智能体模拟、报告生成",
+        "列出技术栈：Flask + Vue.js + OpenAI + Zep + CAMEL-OASIS",
+        "包含 5 步工作流程 Mermaid 图",
+        "包含项目目录结构树状图",
+        "文档使用中文编写"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.1",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-002",
+      "title": "系统架构文档",
+      "description": "作为开发者，我需要理解 MiroFish 的系统架构，包括各模块之间的关系和数据流向。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/02-architecture.md",
+        "包含架构图（前端 → API Gateway → 服务层 → 数据层）",
+        "包含数据流 Mermaid 图（用户请求到响应的完整链）",
+        "包含模块依赖关系图",
+        "说明 Flask 后端与 Vue 前端的通信方式",
+        "说明 Zep Cloud 和 OpenAI 的集成方式"
+      ],
+      "priority": 2,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.2",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-003",
+      "title": "后端架构文档",
+      "description": "作为后端开发者，我需要了解 Flask 应用的整体架构和蓝图组织。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/03-backend/01-overview.md",
+        "说明 Flask 应用工厂模式",
+        "列出所有蓝图：graph_bp, simulation_bp, report_bp",
+        "说明蓝图注册顺序和路由前缀",
+        "包含后端目录结构说明",
+        "说明各服务的职责划分"
+      ],
+      "priority": 3,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.3",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-004",
+      "title": "Graph API 文档",
+      "description": "作为开发者，我需要了解 Graph API 的接口定义和使用方式。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/03-backend/02-api-graph.md",
+        "列出所有 Graph 相关的 API 端点（POST /graph/ontology, POST /graph/build）",
+        "说明每个端点的请求参数和响应格式",
+        "包含 API 调用示例（curl）",
+        "说明本体生成和图谱构建的区别"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.4",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-005",
+      "title": "Simulation API 文档",
+      "description": "作为开发者，我需要了解 Simulation API 的接口定义和使用方式。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/03-backend/03-api-simulation.md",
+        "列出所有 Simulation 相关的 API 端点（POST /simulation/start, GET /simulation/status）",
+        "说明每个端点的请求参数和响应格式",
+        "说明模拟状态机说明（pending → running → completed/failed）",
+        "包含 API 调用示例"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.5",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-006",
+      "title": "Report API 文档",
+      "description": "作为开发者，我需要了解 Report API 的接口定义和使用方式。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/03-backend/04-api-report.md",
+        "列出所有 Report 相关的 API 端点（POST /report/generate, POST /report/feedback）",
+        "说明每个端点的请求参数和响应格式",
+        "说明报告交互机制（用户反馈 → 重新生成）",
+        "包含 API 调用示例"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.6",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-007",
+      "title": "数据模型文档",
+      "description": "作为开发者，我需要了解系统使用的数据模型和状态管理。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/03-backend/05-data-models.md",
+        "说明 Project 模型（id, name, status, created_at, updated_at）",
+        "说明 Task 模型（id, project_id, type, status, result）",
+        "说明状态转换规则（pending → in_progress → completed/failed）",
+        "包含数据模型关系图"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.7",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-008",
+      "title": "Ontology Generator 服务文档",
+      "description": "作为开发者，我需要了解 OntologyGenerator 服务的工作原理。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/03-backend/06-services/01-ontology-generator.md",
+        "说明 LLM 驱动的实体提取机制",
+        "说明 prompt 工程策略",
+        "包含输入输出示例",
+        "说明如何与 Graph Builder 集成"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.8",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-009",
+      "title": "Graph Builder 服务文档",
+      "description": "作为开发者，我需要了解 GraphBuilder 服务的工作原理。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/03-backend/06-services/02-graph-builder.md",
+        "说明 Zep Cloud 集成方式",
+        "说明文本分块策略",
+        "说明节点和边的创建逻辑",
+        "包含图谱存储的数据结构说明"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.9",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-010",
+      "title": "OASIS Profile Generator 文档",
+      "description": "作为开发者，我需要了解 OASISProfileGenerator 服务的工作原理。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/03-backend/06-services/03-oasis-profile-generator.md",
+        "说明 CAMEL-OASIS 框架的集成",
+        "说明 Agent 人设生成机制",
+        "说明 profile JSON 结构",
+        "包含生成的 Agent 示例"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.10",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-011",
+      "title": "Report Agent 文档",
+      "description": "作为开发者，我需要了解 ReportAgent 的工作原理。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/03-backend/06-services/04-report-agent.md",
+        "说明 ReACT 框架的应用",
+        "说明 LangChain 工具的使用",
+        "说明报告生成的推理链",
+        "说明用户反馈处理机制"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.11",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-012",
+      "title": "Simulation Manager 文档",
+      "description": "作为开发者，我需要了解 SimulationManager 的工作原理。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/03-backend/06-services/05-simulation-manager.md",
+        "说明并行模拟管理机制",
+        "说明 SimulationRunner 的调用方式",
+        "说明模拟结果的聚合方法",
+        "说明错误处理和重试策略"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.12",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-013",
+      "title": "前端架构文档",
+      "description": "作为前端开发者，我需要了解 Vue 3 前端的整体架构。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/04-frontend/01-overview.md",
+        "说明 Vue 3 Composition API 的使用",
+        "说明组件组织结构",
+        "说明路由配置",
+        "说明状态管理方式",
+        "包含前端目录结构"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.13",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-014",
+      "title": "前端组件文档",
+      "description": "作为前端开发者，我需要了解各组件的功能和使用方式。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/04-frontend/02-components.md",
+        "列出所有核心组件（ProjectView, TaskList, ReportViewer）",
+        "说明每个组件的 props 和 events",
+        "说明 5 步工作流组件的交互",
+        "包含组件层次结构图"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.14",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-015",
+      "title": "前端 API 集成文档",
+      "description": "作为前端开发者，我需要了解前端如何与后端 API 交互。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/04-frontend/03-api-integration.md",
+        "说明 Axios 封装方式",
+        "说明请求拦截器和响应拦截器",
+        "说明轮询机制（用于模拟状态查询）",
+        "说明错误处理策略",
+        "包含 API 调用代码示例"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.15",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-016",
+      "title": "外部依赖集成文档",
+      "description": "作为开发者，我需要了解外部依赖的集成方式。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/05-integrations/01-overview.md",
+        "说明 Zep Cloud SDK 的集成（memory 存储）",
+        "说明 OpenAI API 的使用（LLM 调用）",
+        "说明 CAMEL-OASIS 的集成（Agent 模拟）",
+        "列出所有必需的环境变量",
+        "包含配置示例"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.16",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-017",
+      "title": "配置和部署文档",
+      "description": "作为运维人员，我需要了解如何配置和部署 MiroFish。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/06-deployment/01-configuration.md",
+        "列出所有环境变量及其用途",
+        "说明 .env.example 文件",
+        "创建 docs/zh/06-deployment/02-local-setup.md",
+        "包含本地开发环境搭建步骤",
+        "创建 docs/zh/06-deployment/03-docker.md",
+        "包含 Docker 部署说明"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.17",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-018",
+      "title": "故障排查文档",
+      "description": "作为运维人员，我需要了解常见问题的排查方法。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/07-troubleshooting/01-common-issues.md",
+        "列出常见问题及解决方案（API 错误、超时等）",
+        "创建 docs/zh/07-troubleshooting/02-debugging.md",
+        "说明日志位置和查看方式",
+        "说明调试命令和工具"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.18",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-019",
+      "title": "设计模式文档",
+      "description": "作为开发者，我需要了解项目中使用的设计模式。",
+      "acceptanceCriteria": [
+        "创建 docs/zh/08-design-patterns.md",
+        "说明应用工厂模式（Flask）",
+        "说明蓝图模式（API 组织）",
+        "说明依赖注入模式",
+        "说明观察者模式（模拟状态更新）",
+        "说明策略模式（不同 Agent 类型）"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.19",
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-020",
+      "title": "文档索引",
+      "description": "作为新用户，我需要一个清晰的文档导航。",
+      "acceptanceCriteria": [
+        "更新 docs/zh/README.md 添加完整索引",
+        "按阅读顺序组织文档链接",
+        "为不同角色提供推荐阅读路径（后端/前端/运维）",
+        "添加快速开始指南",
+        "添加文档贡献指南"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Original beads ID: MiroFish-4xg.20",
+      "completionNotes": "Completed by agent"
+    }
+  ],
+  "metadata": {
+    "updatedAt": "2026-03-10T15:26:00.443Z"
+  }
+}
